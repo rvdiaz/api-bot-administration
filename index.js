@@ -1,4 +1,3 @@
-//const { Client,MessageMedia,LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 const {SearchClient,SaveClient,UpdatedLastForm,UpdatedLanguage,getLastForm}=require('./controllers/clientController');
@@ -36,7 +35,7 @@ app.use(express.json());
 app.use('/api/preguntas', require('./routes/questions'));
 app.use('/api/cuestionario', require('./routes/cuestionario'));
 app.use('/',(req,res)=>{
-    res.send("hello world");
+    res.send("hello");
 });
 
 
