@@ -13,9 +13,8 @@ const pregunta = Schema({
         type:String,
         required:false
     },
-    questionario:{
-        type:Schema.Types.ObjectId,
-        ref:'Cuestionario',
+    cuestionario:{
+        type:String,
         required:false
     },
     quitar_numeracion:{

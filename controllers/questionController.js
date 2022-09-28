@@ -1,5 +1,6 @@
 const express=require('express');
 const {Pregunta}=require('../models/Pregunta');
+var mongoose = require('mongoose');
 
 const GetAnswerByQuestion=async(id)=>{
     const question=await Pregunta.findById(id);
@@ -19,9 +20,19 @@ const createQuestions=async(req, res=express.response)=>{
     }
 }
 
-const SearchQuestionsByForm=async(id)=>{
-    const questions=await Pregunta.find({cuestionario:id.toString()});
-    return questions;
+const SearchQuestionsByForm=async(req,res=express.response)=>{
+    try {
+        const questions=await Pregunta.find({cuestionario:req.params.id});
+        console.log(questions);
+        return res.json({
+            'questions':questions,
+            'ok':true,
+            'sms':'pregunta creada'
+        })
+    } catch (error) {
+        console.log(error);
+    }
+   
 }
 module.exports={
     createQuestions,

@@ -5,7 +5,7 @@ const {createBot,updatedBotInitStatus,updatedBotAuthStatus}=require('./controlle
 const {PrimerForm,InicioForm,getFormQuestionsById}=require('./controllers/formController');
 const {SearchQuestionsByForm}=require('./controllers/questionController');
 const {isValidNumber,cleanNumber}= require('./controllers/handle');
-const {getAnswerById}=require('./controllers/answerController');
+
 const {getLeafById,getLeafArrayByAnswer}=require('./controllers/leafController');
 
 //para usar las variables de entorno
@@ -34,6 +34,10 @@ app.use(express.json());
 
 app.use('/api/preguntas', require('./routes/questions'));
 app.use('/api/cuestionario', require('./routes/cuestionario'));
+app.use('/api/login', require('./routes/login'));
+app.use('/api/home', require('./routes/bot'));
+app.use('/api/clients', require('./routes/client'));
+
 app.use('/',(req,res)=>{
     res.send("hello");
 });
